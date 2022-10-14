@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+ import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../services/http.service";
 
 @Component({
@@ -8,16 +8,19 @@ import {HttpService} from "../services/http.service";
 })
 export class AppComponent implements OnInit{
   title = 'LocalFactoryFrontEnd';
+  boxName: string = "";
+  boxPrice: number = 0;
 
   constructor(private http: HttpService) {
 
   }
 
   async ngOnInit() {
-
+    const boxes = await this.http.getBoxes();
+    console.log(boxes)
   }
 
-  async createBox(){
-
+  writeProductName() {
+    console.log(this.boxName)
   }
 }

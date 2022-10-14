@@ -4,7 +4,8 @@ import * as https from "https";
 import * as http from "http";
 
 export const customAxios = axios.create({
-  baseURL: 'https://boxfactoryapi.azurewebsites.net/'
+  baseURL: 'https://marcusboxfactory.azurewebsites.net'
+  //baseURL: 'https://localhost:7054'
 })
 
 @Injectable({
