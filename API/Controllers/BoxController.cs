@@ -67,8 +67,8 @@ public class BoxController : ControllerBase
         }
     }
 
-
-    [HttpDelete]
+    
+    [HttpDelete("{id}")]
     public IActionResult DeleteBox(int id)
     {
         return Ok(_boxService.DeleteBox(id));
