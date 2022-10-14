@@ -8,7 +8,6 @@ import * as http from "http";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  ID?: number;
   boxName: string = '';
   price: number = 0;
   size: string = '';
@@ -30,13 +29,20 @@ export class AppComponent implements OnInit{
     await this.http.getBoxes();
   }
 
-  async createBox(){
-
+  async createBox() {
+    let dto = {
+      name: this.boxName,
+      price: this.price,
+      size: this.size,
+      description: this.description
+    }
+    const result = await this.http.createBox(dto);
+    this.boxes.push(result);
   }
 
   async deleteBox(id: any) {
     const box = await this.http.deleteBox(id);
-    this.boxes = this.boxes.filter((c: { id: any; }) => c.id != box.id);
+    this.boxes = this.boxes.filter((b: { id: any; }) => b.id != box.id)
   }
 
 }

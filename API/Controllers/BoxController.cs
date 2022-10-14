@@ -69,7 +69,7 @@ public class BoxController : ControllerBase
 
     
     [HttpDelete("{id}")]
-    public IActionResult DeleteBox(int id)
+    public IActionResult DeleteBox([FromRoute] int id)
     {
         return Ok(_boxService.DeleteBox(id));
     }

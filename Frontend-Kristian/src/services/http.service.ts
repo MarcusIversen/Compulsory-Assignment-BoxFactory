@@ -19,9 +19,13 @@ export class HttpService {
     return httpResponse.data;
   }
 
+  async createBox(dto: { size: string; price: number; description: string; name: string }) {
+    const httpResult = await customAxios.post('box', dto)
+    return httpResult.data;
+  }
+
   async deleteBox(id: any) {
     const httpResult = await customAxios.delete('box/'+id);
     return httpResult.data;
   }
-
 }
