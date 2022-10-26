@@ -1,26 +1,60 @@
- import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from "../services/http.service";
+import {MatSidenav} from "@angular/material/sidenav";
+import {BreakpointObserver} from '@angular/cdk/layout'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'LocalFactoryFrontEnd';
   boxName: string = "";
   boxPrice: number = 0;
+  boxSize: string = "";
+  boxDescription: string = "";
+  boxes: any;
 
-  constructor(private http: HttpService) {
+  @ViewChild(MatSidenav)
+  sideNav!: MatSidenav;
 
+
+  constructor(private http: HttpService, private observer: BreakpointObserver) {
+
+  }
+
+  ngAfterViewInit(){
+    this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
+      if(res.matches){
+        this.sideNav.mode = 'over';
+        this.sideNav.close();
+      }else{
+        this.sideNav.mode = 'side';
+        this.sideNav.open();
+      }
+    });
   }
 
   async ngOnInit() {
     const boxes = await this.http.getBoxes();
-    console.log(boxes)
+    this.boxes = boxes;
   }
 
-  writeProductName() {
-    console.log(this.boxName)
+  async createBox() {
+    let dto = {
+      name: this.boxName,
+      price: this.boxPrice,
+      size: this.boxSize,
+      description: this.boxDescription
+    }
+    const result = await this.http.createBox(dto);
+    this.boxes.push(result);
+  }
+
+
+  async deleteBox(id: any) {
+    const box = await this.http.deleteBox(id);
+    this.boxes = this.boxes.filter((b: { id: any; }) => b.id != box.id);
   }
 }
