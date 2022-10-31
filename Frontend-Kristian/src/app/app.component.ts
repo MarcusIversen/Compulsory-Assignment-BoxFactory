@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../services/http.service";
-import * as http from "http";
 
 @Component({
   selector: 'app-root',
@@ -43,6 +42,17 @@ export class AppComponent implements OnInit{
   async deleteBox(id: any) {
     const box = await this.http.deleteBox(id);
     this.boxes = this.boxes.filter((b: { id: any; }) => b.id != box.id)
+  }
+
+  async updateBox() {
+    let dto = {
+      name: this.boxName,
+      price: this.price,
+      size: this.size,
+      description: this.description
+    }
+    const result = await this.http.updateBox(dto);
+    this.boxes.push(result);
   }
 
 }

@@ -1,32 +1,33 @@
-<div style="margin: 100px">
+<h1>Inventory of the Box Factory</h1>
+
+<div style="margin: 30px;">
+
+  <h2> Create a box</h2>
 
   <mat-form-field>
-    <label >Name</label>
-    <input matInput [(ngModel)]="boxName">
+    <input matInput placeholder = "Name" [(ngModel)]="boxName">
   </mat-form-field>
   <br>
 
   <mat-form-field>
-    <label >Price</label>
-    <input matInput [(ngModel)]="price">
+    <input type = "number" matInput placeholder = "Price" [(ngModel)]="price">
   </mat-form-field>
   <br>
 
   <mat-form-field>
-    <label >Size</label>
-    <input matInput [(ngModel)]="size">
+    <input matInput placeholder = "Size" [(ngModel)]="size">
   </mat-form-field>
   <br>
 
   <mat-form-field>
-    <label >Description</label>
-    <input matInput [(ngModel)]="description">
+    <input matInput placeholder = "Description" [(ngModel)]="description">
   </mat-form-field>
   <br>
 
-  <button [disabled]="boxName == '' || price < 1 || size == '' || description == ''" mat-raised-button (click)="createBox()">Create Box! </button>
+  <button [disabled]="boxName == '' || price < 1 || size == '' || description == ''" style="background-color: forestgreen" mat-raised-button (click)="createBox()">Create Box! </button>
 
 
+  <h2 style="margin-top: 25px"> List of boxes</h2>
 
   <mat-card style="margin-top: 30px;" *ngFor="let b of boxes">
     <mat-card-title>ID: {{b.id}}</mat-card-title>
@@ -35,7 +36,8 @@
     <mat-card-subtitle>Size: {{b.size}}</mat-card-subtitle>
     <mat-card-subtitle>Description: {{b.description}}</mat-card-subtitle>
     <mat-card-actions>
-      <button mat-button (click)="deleteBox(b.id)">Delete Box!</button>
+      <button style="background-color: red" mat-button (click)="deleteBox(b.id)">Delete Box!</button>
+      <button style="background-color: yellow" mat-button (click)="updateBox()" >Update Box!</button>
     </mat-card-actions>
   </mat-card>
 
