@@ -14,10 +14,18 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
+import { CreateBoxComponent } from './create-box/create-box.component';
+import {MatRadioModule} from "@angular/material/radio";
+import { OverviewBoxComponent } from './overview-box/overview-box.component';
+import { FrontPageComponent } from './front-page/front-page.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateBoxComponent,
+    OverviewBoxComponent,
+    FrontPageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,9 @@ import {MatDividerModule} from "@angular/material/divider";
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatRadioModule,
+    FlexLayoutModule
   ],
   providers: [MatSnackBar, Overlay],
   bootstrap: [AppComponent]
