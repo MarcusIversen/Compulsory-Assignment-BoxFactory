@@ -22,29 +22,25 @@
     <mat-divider></mat-divider>
 
     <button routerLink="/CreateBox" mat-button class="menu-button">
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
+      <mat-icon>add_box</mat-icon>
+      <span>Create Box</span>
     </button>
     <button routerLink="/OverviewBox" mat-button class="menu-button">
-      <mat-icon>person</mat-icon>
-      <span>Admin</span>
+      <mat-icon>description</mat-icon>
+      <span>Box Overview</span>
     </button>
-    <button mat-button class="menu-button">
+    <button routerLink="/Info" mat-button class="menu-button">
       <mat-icon>info</mat-icon>
       <span>Info</span>
     </button>
-    <button mat-button class="menu-button">
-      <mat-icon>settings</mat-icon>
-      <span>Settings</span>
-    </button>
-    <button mat-button class="menu-button">
-      <mat-icon>help</mat-icon>
-      <span>Help</span>
-    </button>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content style="margin-left: 205px">
     <div>
-      <div style="margin: 75px">
+      <div style="margin: 65px" >
+
+        <mat-card-title style="font-size: 3rem">Create a box</mat-card-title>
+
+        <br>
 
         <mat-form-field>
 
@@ -76,6 +72,9 @@
         <button mat-raised-button [disabled]="boxName=='' || boxPrice<1" (click)="createBox()">Click me - Button</button>
 
         <br>
+        <br>
+        <br>
+        <mat-card-subtitle style="font-size: 2rem">Newly created boxes</mat-card-subtitle>
 
         <mat-card style="margin-top: 20px" *ngFor="let b of boxes">
           <mat-card-title>Box ID: {{b.id}}</mat-card-title>

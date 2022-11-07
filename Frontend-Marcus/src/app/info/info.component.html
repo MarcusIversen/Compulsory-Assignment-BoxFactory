@@ -1,0 +1,72 @@
+<mat-toolbar>
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+  Local Box Factory
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <img class="ProfileImg" src="https://avatars.githubusercontent.com/u/7218351?v=4" width="91%"
+         height="25%">
+
+    <h4 class="name">Bent H Pedersen</h4>
+    <p class="designation">BoxFactory Admin</p>
+
+    <mat-divider></mat-divider>
+
+    <button routerLink="/CreateBox" mat-button class="menu-button">
+      <mat-icon>add_box</mat-icon>
+      <span>Create Box</span>
+    </button>
+    <button routerLink="/OverviewBox" mat-button class="menu-button">
+      <mat-icon>description</mat-icon>
+      <span>Box Overview</span>
+    </button>
+    <button routerLink="/Info" mat-button class="menu-button">
+      <mat-icon>info</mat-icon>
+      <span>Info</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content style="margin: 10px;">
+    <div>
+      <mat-card>
+        <mat-card-title>Info</mat-card-title>
+        <br>
+        <mat-card-title>Compulsory Assignment - Box Factory</mat-card-title>
+        <br>
+        <br>
+        <mat-card-subtitle>Business Case</mat-card-subtitle>
+        <mat-card-content>
+          The local box factory needs to keep track of their products.
+          The manager wants to be able to see all the magnificent boxes on a dedicated web application while he's away for
+          golfing. He has just called you up, and now it's your job. It should be possible to see a brief overview of many
+          different products, elaborate details of a single box, update a box and delete a box.
+        </mat-card-content>
+        <br>
+        <br>
+        <br>
+        <mat-card-subtitle>Created By</mat-card-subtitle>
+        <mat-card-content>
+          Marcus Iversen
+          <br>
+          Computer Science 3rd Semester - EASV Esbjerg
+          <br>
+          Github:<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">https://github.com/MarcusIversen</a>
+          <br>
+          <br>
+          <br>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+

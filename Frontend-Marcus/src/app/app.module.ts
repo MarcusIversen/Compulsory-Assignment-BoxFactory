@@ -19,13 +19,15 @@ import {MatRadioModule} from "@angular/material/radio";
 import { OverviewBoxComponent } from './overview-box/overview-box.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateBoxComponent,
     OverviewBoxComponent,
-    FrontPageComponent
+    FrontPageComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

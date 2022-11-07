@@ -1,27 +1,18 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSidenav} from "@angular/material/sidenav";
 import {HttpService} from "../../services/http.service";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {Router} from "@angular/router";
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
-  selector: 'app-overview-box',
-  templateUrl: './overview-box.component.html',
-  styleUrls: ['./overview-box.component.scss']
+  selector: 'app-info',
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.scss']
 })
-export class OverviewBoxComponent implements OnInit {
-
-  title = 'LocalFactoryFrontEnd';
-  boxName: string = "";
-  boxPrice: number = 0;
-  boxSize: string = "";
-  boxDescription: string = "";
-  boxes: any;
+export class InfoComponent implements OnInit {
 
   @ViewChild(MatSidenav)
   sideNav!: MatSidenav;
-
 
   constructor(private http: HttpService, private observer: BreakpointObserver, private router: Router) {
   }
@@ -40,14 +31,6 @@ export class OverviewBoxComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const boxes = await this.http.getBoxes();
-    this.boxes = boxes;
-  }
-
-
-  async deleteBox(id: any) {
-    const box = await this.http.deleteBox(id);
-    this.boxes = this.boxes.filter((b: { id: any; }) => b.id != box.id);
   }
 
 }

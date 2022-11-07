@@ -12,23 +12,24 @@ mat-sidenav {
   border-radius: 10px;
   padding: 16px;
   text-align: center;
+  img{
+    border-radius: 50%;
+  }
 }
+
 
 .content {
   height: calc(100vh - 96px);
   margin: 16px;
-  padding: 16px;
+  margin-left: 1px;
 
   //font-size: 2rem;
   //color: lightgray;
-}
 
+}
 
 mat-sidenav-container{
   height: calc(100vh - 65px);
-  img {
-    border-radius: 50%;
-  }
 }
 
 .menu-button {
@@ -48,12 +49,6 @@ mat-sidenav-container{
   border-radius: 50%;
 }
 
-.name {
-  margin: 0px;
-  margin-top: 8px;
-  font-weight: normal;
-}
-
 .designation{
   margin-top: 2px;
   font-size: 0.7rem;
@@ -63,4 +58,21 @@ mat-sidenav-container{
 mat-divider{
   margin-bottom: 16px;
   background-color: aliceblue;
+}
+
+.mat-card-title{
+  margin-left:  55px;
+  line-height: 45pt;
+  font-size: 3rem;
+}
+.mat-card-subtitle {
+  margin-left:  55px;
+  line-height: 26pt;
+  font-size: 2rem;
+}
+
+.mat-card-content{
+  margin-left:  55px;
+  line-height: 26pt;
+  font-size: 1.25rem;
 }

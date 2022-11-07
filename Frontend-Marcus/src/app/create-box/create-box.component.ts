@@ -25,13 +25,6 @@ export class CreateBoxComponent implements OnInit {
   constructor(private http: HttpService, private observer: BreakpointObserver, private router: Router) {
   }
 
-  goToCreatePage(CreatePage:string):void{
-    this.router.navigate([`${CreatePage}`]);
-  }
-
-  goToOverviewPage(CreatePage:string):void{
-    this.router.navigate([`${CreatePage}`]);
-  }
 
   ngAfterViewInit(){
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
